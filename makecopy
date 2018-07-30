@@ -1,0 +1,33 @@
+#!/bin/bash
+#make copy about input directory, under backups directory, appending today's date at the end of the directory name
+
+if [ $# != 1 ]
+  then
+    echo Give me the name of the directory.
+    exit
+fi
+
+if [ ! -d /home/noemikecskes/practice/linux-practice/$1 ]
+then
+  echo Name doesn\'t belong to a directory.
+  exit
+fi
+
+date=`date +%F`
+
+if [ -d /home/noemikecskes/practice/linux-practice/backups/$1_$date ]
+then
+  echo 'This copy already exists. Should we overwrite it? (y/n)'
+  read answer
+  if [ $answer != 'y' ]
+  then
+    echo Nothing was copied.
+    echo $1_$date
+    exit
+  fi
+else
+    mkdir /home/noemikecskes/practice/linux-practice/backups/$1_$date
+fi
+
+cp -R /home/noemikecskes/practice/linux-practice/$1 /home/noemikecskes/practice/linux-practice/backups/$1_$date
+echo Directory was copied successfully.

@@ -1,0 +1,5 @@
+#!/bin/bash
+
+argReceived=$argToPass
+
+echo Received arg is: $argReceived

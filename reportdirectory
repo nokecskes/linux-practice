@@ -1,0 +1,65 @@
+#!/bin/bash
+#print details about directory
+
+if [ $# != 1 ]
+then
+  echo Usage: Add one argument, the name of the directory you want to see the details of
+  exit
+fi
+
+inputdirectory=/home/noemikecskes/practice/linux-practice/$1
+
+if [ ! -d $inputdirectory ]
+then
+  echo Directory doesn\'t exist.
+  exit
+fi
+
+#print number of recently updated files (last 24hrs) in input directory
+#ls -t $inputdirectory |head -n 1
+#ls -c $inputdirectory | head -n 1
+recentNr=$(find $inputdirectory -mtime -1 | wc -l)
+echo Number of recently updated files: $recentNr
+
+#print the list from above, displaying only the file name
+#SOLUTION1: in 2 lines
+#recents=$(find $inputdirectory -mtime -1)
+#recentsConcat=$(basename -a $recents)
+#SOLUTION2: in 1 line
+recentsConcat=$(find $inputdirectory -mtime -1 -exec basename -a {} + )
+echo These are: $recentsConcat
+
+#count files in input directory
+nrOfFiles=$(find $inputdirectory -mindepth 1 -maxdepth 1 -type f | wc -l)
+echo Number of files: $nrOfFiles
+
+#count directories in input directory
+nrOfDirectories=$(find $inputdirectory -mindepth 1 -maxdepth 1 -type d | wc -l)
+echo Number of directories: $nrOfDirectories
+
+#count files and directories (and symlinks) in input directory
+nrOfFAndDs=$(find $inputdirectory -mindepth 1 -maxdepth 1 | wc -l)
+echo Number of files and directories: $nrOfFAndDs
+
+
+#print size of each dir/file in input dir
+#du -sh $inputdirectory
+#ls -sh $inputdirectory
+sizeAll=$(du -sh $inputdirectory)
+echo Size of directories and files: $sizeAll
+
+#biggest directory in input dir
+#du -a $inputdirectory | sort -n -r | head -n 1
+biggestDir=$(du -hs $inputdirectory | sort -rh | head -1)
+echo This is the biggest directory: $biggestDir
+
+#print biggest's name without more information
+#ls -S $inputdirectory | head -n 1
+
+#list of people who own files in the directory
+#owner=$(ls -l $inputdirectory | awk '{print $3}' | sort | uniq)
+#echo Owners in directory: $owner --------------it doesn't work with variable
+
+#echo owners in current directory
+echo owners
+ls -l | awk '{print $3}' | sort | uniq

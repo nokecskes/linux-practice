@@ -1,0 +1,13 @@
+total 44
+drwxrwxr-x 4 noemikecskes noemikecskes 4096 márc  10 17:36 .
+drwxrwxr-x 4 noemikecskes noemikecskes 4096 márc  10 14:51 ..
+drwxrwxr-x 3 noemikecskes noemikecskes 4096 márc  10 14:29 backups
+-rw-rw-r-- 1 noemikecskes noemikecskes    0 márc  10 17:36 data.txt
+-rwxrw-r-- 1 noemikecskes noemikecskes  578 márc  10 16:02 echoname
+-rwxrw-r-- 1 noemikecskes noemikecskes  223 márc  10 16:55 isDirectory
+-rwxrw-r-- 1 noemikecskes noemikecskes   72 márc  10 16:36 isDirectoryEchoed
+-rwxrw-r-- 1 noemikecskes noemikecskes  819 márc  10 14:32 makecopy
+-rwxrw-r-- 1 noemikecskes noemikecskes   67 márc  10 17:36 owner
+-rwxrw-r-- 1 noemikecskes noemikecskes  105 márc  10 17:18 registration
+-rwxrw-r-- 1 noemikecskes noemikecskes 2036 márc  10 17:11 reportdirectory
+drwxrwxr-x 2 noemikecskes noemikecskes 4096 márc  10 13:42 testdir

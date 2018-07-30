@@ -1,0 +1,29 @@
+#!/bin/bash
+
+argument1=$1
+
+echo most recently run process exit status: $?
+
+echo User running the script: $USER
+
+echo Number of command line arguments: $#
+#echo All arguments: $*
+echo All arguments: $@
+echo The first argument is: $argument1
+
+#print date in yyyy-mm-dd format
+date=`date +%F`
+echo Date is: $date
+
+#print date
+echo Date is:
+date
+
+echo Random number for you: $RANDOM
+
+echo Script started $SECONDS secs ago.
+
+
+#Other possible variables:
+#$HOSTNAME - The hostname of the machine the script is running on.
+#$LINENO - Returns the current line number in the Bash script.

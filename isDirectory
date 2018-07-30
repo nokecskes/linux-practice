@@ -1,0 +1,13 @@
+#!/bin/bash
+
+arg=$1
+
+if [ -d /home/noemikecskes/practice/linux-practice/$arg ]
+then
+  argToPass='directory'
+else
+  argToPass='not directory'
+fi
+
+export argToPass
+/home/noemikecskes/practice/linux-practice/isDirectoryEchoed

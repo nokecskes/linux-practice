@@ -1,0 +1,7 @@
+#/bin/bash
+
+# collect information about the directory's dirs/files
+ls -al > data.txt
+
+#display this data, but only the uniqe owner names
+cat data.txt | cut -d' ' -f 3 | uniq
